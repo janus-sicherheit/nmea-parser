@@ -25,7 +25,8 @@
     },
     "autoload": {
         "psr-4": {
-            "NMEA\\": "src/"
+            "NMEA\\": "src/",
+            "NMEA\\Frames\\": "src/frames/"
         }
     },
     "autoload-dev": {
