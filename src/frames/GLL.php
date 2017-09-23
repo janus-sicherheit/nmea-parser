@@ -36,7 +36,7 @@ class GLL extends \NMEA\Frame
         .'$/m';
 
     /**
-     * @var float $latitude Latitude
+     * @var string $latitude Latitude
      */
     protected $latitude;
 
@@ -46,7 +46,7 @@ class GLL extends \NMEA\Frame
     protected $latitudeDirection;
 
     /**
-     * @var float $longitude Longitude
+     * @var string $longitude Longitude
      */
     protected $longitude;
 
@@ -78,7 +78,7 @@ class GLL extends \NMEA\Frame
     /**
      * Getter to property latitude
      * 
-     * @return float
+     * @return string
      */
     public function getLatitude()
     {
@@ -98,7 +98,7 @@ class GLL extends \NMEA\Frame
     /**
      * Getter to property longitude
      * 
-     * @return float
+     * @return string
      */
     public function getLongitude()
     {
@@ -150,9 +150,9 @@ class GLL extends \NMEA\Frame
      */
     protected function decodeFrame($msgParts)
     {
-        $this->latitude           = (float) $msgParts[2];
+        $this->latitude           = (string) $msgParts[2];
         $this->latitudeDirection  = (string) $msgParts[3];
-        $this->longitude          = (float) $msgParts[4];
+        $this->longitude          = (string) $msgParts[4];
         $this->longitudeDirection = (string) $msgParts[5];
         
         $this->utcTime = DateTime::createFromFormat(

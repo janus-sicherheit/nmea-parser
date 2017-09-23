@@ -49,7 +49,7 @@ class GGA extends \NMEA\Frame
     protected $utcTime;
 
     /**
-     * @var float $latitude Latitude
+     * @var string $latitude Latitude
      */
     protected $latitude;
 
@@ -59,7 +59,7 @@ class GGA extends \NMEA\Frame
     protected $latitudeDirection;
 
     /**
-     * @var float $longitude Longitude
+     * @var string $longitude Longitude
      */
     protected $longitude;
 
@@ -139,7 +139,7 @@ class GGA extends \NMEA\Frame
     /**
      * Getter to property latitude
      * 
-     * @return float
+     * @return string
      */
     public function getLatitude()
     {
@@ -159,7 +159,7 @@ class GGA extends \NMEA\Frame
     /**
      * Getter to property longitude
      * 
-     * @return float
+     * @return string
      */
     public function getLongitude()
     {
@@ -277,9 +277,9 @@ class GGA extends \NMEA\Frame
             new DateTimeZone('UTC')
         );
 
-        $this->latitude           = (float) $msgParts[3];
+        $this->latitude           = (string) $msgParts[3];
         $this->latitudeDirection  = (string) $msgParts[4];
-        $this->longitude          = (float) $msgParts[5];
+        $this->longitude          = (string) $msgParts[5];
         $this->longitudeDirection = (string) $msgParts[6];
 
         $this->gpsQuality                  = (int) $msgParts[7];

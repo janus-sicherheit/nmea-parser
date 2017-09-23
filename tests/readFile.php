@@ -53,6 +53,7 @@ while ($line = fgets($fop)) {
         $latDeg = \NMEA\Utils\Coordinates::convertGPDataToDegree(
             $frame->getLatitude(),
             $frame->getLatitudeDirection(),
+            false,
             true
         );
         $latDec = \NMEA\Utils\Coordinates::convertGPDataToDec(
@@ -62,10 +63,12 @@ while ($line = fgets($fop)) {
         $longDeg = \NMEA\Utils\Coordinates::convertGPDataToDegree(
             $frame->getLongitude(),
             $frame->getLongitudeDirection(),
+            true,
             true
         );
         $longDec = \NMEA\Utils\Coordinates::convertGPDataToDec(
             $frame->getLongitude()
+            true
         );
         
         echo "\n".'Conversion coordinates : '."\n";

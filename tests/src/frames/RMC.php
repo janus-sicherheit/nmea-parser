@@ -114,8 +114,8 @@ class RMC extends atoum\test
     protected function testGetLatitude()
     {
         $this->assert('Frames\RMC::getLatitude()')
-            ->float($this->frame->getLatitude())
-                ->isEqualTo(4807.038)
+            ->string($this->frame->getLatitude())
+                ->isEqualTo('4807.038')
         ;
     }
 
@@ -140,8 +140,8 @@ class RMC extends atoum\test
     protected function testGetLongitude()
     {
         $this->assert('Frames\RMC::getLongitude()')
-            ->float($this->frame->getLongitude())
-                ->isEqualTo(01131.000)
+            ->string($this->frame->getLongitude())
+                ->isEqualTo('01131.000')
         ;
     }
 

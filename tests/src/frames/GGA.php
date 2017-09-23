@@ -106,8 +106,8 @@ class GGA extends atoum\test
     protected function testGetLatitude()
     {
         $this->assert('Frames\GGA::getLatitude()')
-            ->float($this->frame->getLatitude())
-                ->isEqualTo(4836.5375)
+            ->string($this->frame->getLatitude())
+                ->isEqualTo('4836.5375')
         ;
     }
 
@@ -132,8 +132,8 @@ class GGA extends atoum\test
     protected function testGetLongitude()
     {
         $this->assert('Frames\GGA::getLongitude()')
-            ->float($this->frame->getLongitude())
-                ->isEqualTo(00740.9373)
+            ->string($this->frame->getLongitude())
+                ->isEqualTo('00740.9373')
         ;
     }
 

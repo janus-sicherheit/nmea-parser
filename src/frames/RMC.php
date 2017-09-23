@@ -52,7 +52,7 @@ class RMC extends \NMEA\Frame
     protected $status;
 
     /**
-     * @var float $latitude Latitude
+     * @var string $latitude Latitude
      */
     protected $latitude;
 
@@ -62,7 +62,7 @@ class RMC extends \NMEA\Frame
     protected $latitudeDirection;
 
     /**
-     * @var float $longitude Longitude
+     * @var string $longitude Longitude
      */
     protected $longitude;
 
@@ -130,7 +130,7 @@ class RMC extends \NMEA\Frame
     /**
      * Getter to property latitude
      * 
-     * @return float
+     * @return string
      */
     public function getLatitude()
     {
@@ -150,7 +150,7 @@ class RMC extends \NMEA\Frame
     /**
      * Getter to property longitude
      * 
-     * @return float
+     * @return string
      */
     public function getLongitude()
     {
@@ -242,9 +242,9 @@ class RMC extends \NMEA\Frame
         
         $this->status = (string) $msgParts[4];
 
-        $this->latitude           = (float) $msgParts[5];
+        $this->latitude           = (string) $msgParts[5];
         $this->latitudeDirection  = (string) $msgParts[6];
-        $this->longitude          = (float) $msgParts[7];
+        $this->longitude          = (string) $msgParts[7];
         $this->longitudeDirection = (string) $msgParts[8];
 
         $this->speed = (float) $msgParts[9];

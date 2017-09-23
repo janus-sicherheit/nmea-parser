@@ -73,8 +73,8 @@ class GLL extends atoum\test
     protected function testGetLatitude()
     {
         $this->assert('Frames\GLL::getLatitude()')
-            ->float($this->frame->getLatitude())
-                ->isEqualTo(4916.45)
+            ->string($this->frame->getLatitude())
+                ->isEqualTo('4916.45')
         ;
     }
 
@@ -99,8 +99,8 @@ class GLL extends atoum\test
     protected function testGetLongitude()
     {
         $this->assert('Frames\GLL::getLongitude()')
-            ->float($this->frame->getLongitude())
-                ->isEqualTo(12311.12)
+            ->string($this->frame->getLongitude())
+                ->isEqualTo('12311.12')
         ;
     }
 
