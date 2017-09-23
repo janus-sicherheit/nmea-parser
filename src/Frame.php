@@ -158,7 +158,7 @@ abstract class Frame
      * 
      * @throws Exception If the message not corresponding with the regex.
      */
-    protected function readFrame()
+    public function readFrame()
     {
         $matches = [];
         if (!preg_match($this->frameRegex, $this->message, $matches)) {
