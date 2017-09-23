@@ -156,4 +156,26 @@ class GSV extends atoum\test
                 ->isEqualTo($expectedSNR)
         ;
     }
+    
+    public function testNotFourSatellite()
+    {
+        $this->assert('Frames\GSV::getSatellitesInfos() without four satellites');
+        
+        $this->frame = new \NMEA\Frames\GSV(
+            '$GPGSV,2,1,08,01,40,083,46,02,17,308,41,12,07,344,*43'
+        );
+        
+        $this
+            ->if($this->invoke($this->frame)->readFrame())
+            ->then
+            ->array($svInfos = $this->frame->getSatellitesInfos())
+                ->size
+                    ->isEqualTo(4)
+        ;
+        
+        $this->testGetSatellitesInfosObject($svInfos[0], 0, 1, 40, 83, 46);
+        $this->testGetSatellitesInfosObject($svInfos[1], 1, 2, 17, 308, 41);
+        $this->testGetSatellitesInfosObject($svInfos[2], 2, 12, 7, 344, 0);
+        $this->testGetSatellitesInfosObject($svInfos[3], 3, 0, 0, 0, 0);
+    }
 }

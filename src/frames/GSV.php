@@ -24,11 +24,12 @@ class GSV extends \NMEA\Frame
         .'([A-Z]{2}[A-Z]{3}),' //Equipment and trame type
         .'(\d*),' //Number of sentences for full data
         .'(\d*),' //Sentence number
-        .'(\d*),' //Number of satellites in view
-        .'(\d*),(\d*),(\d*),(\d*),' //Infos about first satellite
-        .'(\d*),(\d*),(\d*),(\d*),' //Infos about second satellite
-        .'(\d*),(\d*),(\d*),(\d*),' //Infos about trird satellite
-        .'(\d*),(\d*),(\d*),(\d*)' //Infos about fourth satellite
+        .'(\d*)' //Number of satellites in view
+        .'(,(\d*),(\d*),(\d*),(\d*)' //Infos about first satellite
+        .'(,(\d*),(\d*),(\d*),(\d*)' //Infos about second satellite
+        .'(,(\d*),(\d*),(\d*),(\d*)' //Infos about trird satellite
+        .'(,(\d*),(\d*),(\d*),(\d*)' //Infos about fourth satellite
+        .')?)?)?)?'
         .'$/m';
     
     /**
@@ -107,11 +108,22 @@ class GSV extends \NMEA\Frame
         
         for ($svIndex = 0; $svIndex <= 3; $svIndex++) {
             $this->satellitesInfos[$svIndex] = (object) [
-                'prnNumber' => (int) $msgParts[(5 + (4 * $svIndex))],
-                'elevation' => (int) $msgParts[(6 + (4 * $svIndex))],
-                'azimuth'   => (int) $msgParts[(7 + (4 * $svIndex))],
-                'SNR'       => (int) $msgParts[(8 + (4 * $svIndex))],
+                'prnNumber' => 0,
+                'elevation' => 0,
+                'azimuth'   => 0,
+                'SNR'       => 0,
             ];
+            
+            $indexPos = 5 * $svIndex;
+            if (!isset($msgParts[(6 + $indexPos)])) {
+                continue;
+            }
+            
+            $svInfos            = &$this->satellitesInfos[$svIndex];
+            $svInfos->prnNumber = (int) $msgParts[(6 + $indexPos)];
+            $svInfos->elevation = (int) $msgParts[(7 + $indexPos)];
+            $svInfos->azimuth   = (int) $msgParts[(8 + $indexPos)];
+            $svInfos->SNR       = (int) $msgParts[(9 + $indexPos)];
         }
     }
 }
