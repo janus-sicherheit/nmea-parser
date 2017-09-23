@@ -232,4 +232,19 @@ class RMC extends atoum\test
                 ->isEqualTo('W')
         ;
     }
+    
+    public function testGetMode()
+    {
+        $this->assert('Frames\RMC::getMode()');
+        
+        $this->frame = new \NMEA\Frames\RMC(
+            '$GPRMC,120250.000,A,4331.1611,N,00407.6114,E,4.17,324.43,170917,,,A*60'
+        );
+        
+        $this->if($this->invoke($this->frame)->readFrame())
+            ->then
+            ->string($this->frame->getMode())
+                ->isEqualTo('A')
+        ;
+    }
 }
