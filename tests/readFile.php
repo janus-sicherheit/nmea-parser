@@ -50,30 +50,48 @@ while ($line = fgets($fop)) {
     
     $frameType = $frame->getFrameType();
     if ($frameType === 'GGA' || $frameType === 'GLL' || $frameType === 'RMC') {
-        $latDeg = \NMEA\Utils\Coordinates::convertGPDataToDegree(
+        $latDeg     = \NMEA\Utils\Coordinates::convertGPDataToDegree(
             $frame->getLatitude(),
             $frame->getLatitudeDirection(),
             false,
             true
         );
-        $latDec = \NMEA\Utils\Coordinates::convertGPDataToDec(
+        $latDec     = \NMEA\Utils\Coordinates::convertGPDataToDec(
+            $frame->getLatitude()
+        );
+        $latGmapObj = \NMEA\Utils\Coordinates::convertGPDataToDegree(
             $frame->getLatitude()
         );
         
-        $longDeg = \NMEA\Utils\Coordinates::convertGPDataToDegree(
+        $longDeg     = \NMEA\Utils\Coordinates::convertGPDataToDegree(
             $frame->getLongitude(),
             $frame->getLongitudeDirection(),
             true,
             true
         );
-        $longDec = \NMEA\Utils\Coordinates::convertGPDataToDec(
-            $frame->getLongitude()
+        $longDec     = \NMEA\Utils\Coordinates::convertGPDataToDec(
+            $frame->getLongitude(),
             true
         );
+        $longGmapObj = \NMEA\Utils\Coordinates::convertGPDataToDegree(
+            $frame->getLongitude(),
+            null,
+            true
+        );
+        
+        $latGmap  = $latGmapObj->degree.'° '
+            .$latGmapObj->minute.'.'
+            .$latGmapObj->second.'\' '
+            .$frame->getLatitudeDirection();
+        $longGmap = $longGmapObj->degree.'° '
+            .$longGmapObj->minute.'.'
+            .$longGmapObj->second.'\''
+            .$frame->getLongitudeDirection();
         
         echo "\n".'Conversion coordinates : '."\n";
         echo 'Latitude : '.$latDeg.' / '.$latDec."\n";
         echo 'Longitude : '.$longDeg.' / '.$longDec."\n";
+        echo 'Gmaps : '.$latGmap.' '.$longGmap."\n";
     }
     
     echo '---------------------------------------------------------------'."\n";
