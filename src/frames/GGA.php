@@ -10,6 +10,7 @@ use \DateTimeZone;
  * 
  * @package NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
+ * @link http://www.gpsinformation.org/dale/nmea.htm#GGA
  */
 class GGA extends \NMEA\Frame
 {
@@ -30,11 +31,8 @@ class GGA extends \NMEA\Frame
         .'([0-9\.]+),' //Longitude
         .'(E|W),' //E or W (East or West)
         .'(\d{0,1}),' //GPS Quality Indicator
-        // 0 - fix not available,
-        // 1 - GPS fix,
-        // 2 - Differential GPS fix
         .'(\d{0,2}),' //Number of satellites in view, 00 - 12
-        .'([0-9\.]*),' //Horizontal Dilution of precision
+        .'([0-9\.]*),' //Horizontal Dilution of position
         .'([0-9\.]*),' //Antenna Altitude above/below mean-sea-level (geoid)
         .'([A-Z]{0,1}),' //Units of antenna altitude, meters
         .'([0-9\.-]*),' //Geoidal separation, the difference between the WGS-84
@@ -42,7 +40,7 @@ class GGA extends \NMEA\Frame
         .'([A-Z]{0,1}),' //Units of geoidal separation, meters
         .'([0-9\.]*),' //Age of differential GPS data, time in seconds since last SC104
         //type 1 or 9 update, null field when DGPS is not used
-        .'(\d{0,4})' //Differential reference station ID, 0000-1023
+        .'(\d{0,4})' //DGPS station ID, 0000-1023
         .'$/m';
 
     /**
@@ -73,8 +71,14 @@ class GGA extends \NMEA\Frame
     /**
      * @var int $gpsQuality GPS Quality Indicator
      * * 0 - fix not available,
-     * * 1 - GPS fix,
-     * * 2 - Differential GPS fix
+     * * 1 - GPS fix (SPS),
+     * * 2 - Differential GPS fix (DGPS)
+     * * 3 - PPS fix
+     * * 4 - Real Time Kinematic
+     * * 5 - Float RTK
+     * * 6 - estimated (dead reckoning) (2.3 feature)
+     * * 7 - Manual input mode
+     * * 8 - Simulation mode
      */
     protected $gpsQuality;
 
