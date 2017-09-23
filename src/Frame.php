@@ -70,6 +70,48 @@ abstract class Frame
         $this->checksum();
     }
     
+    public function __toString()
+    {
+        $properties = get_class_vars(get_called_class());
+        $notDisplay = [
+            'frameRegex',
+            'line',
+            'message',
+            'checksum'
+        ];
+        
+        $returnedStr = '';
+        foreach ($properties as $propName => $propValue) {
+            if (in_array($propName, $notDisplay)) {
+                continue;
+            }
+            
+            $propCurrentValue = $this->{$propName};
+            if (
+                is_object($propCurrentValue) &&
+                get_class($propCurrentValue) === '\DateTime'
+            ) {
+                $format = 'd/m/Y H:i:s.u';
+                if ($propName === 'utcTime') {
+                    $format = 'H:i:s.u';
+                } elseif ($propName === 'utcDate') {
+                    $format = 'd/m/Y';
+                }
+                
+                $propCurrentValue = $propCurrentValue->format('d/m/Y H:i:s.u');
+            } elseif (
+                is_array($propCurrentValue) ||
+                is_object($propCurrentValue)
+            ) {
+                $propCurrentValue = print_r($propCurrentValue, true);
+            }
+            
+            $returnedStr .= $propName.' : '.$propCurrentValue."\n";
+        }
+        
+        return $returnedStr;
+    }
+    
     /**
      * Take all message parts and populate attributes
      * 
