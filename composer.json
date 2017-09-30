@@ -1,5 +1,5 @@
 {
-    "name": "nmea",
+    "name": "gps2maps/nmea",
     "description": "NMEA PHP parser",
     "version": "1.0.0",
     "type": "library",
