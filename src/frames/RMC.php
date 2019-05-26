@@ -1,6 +1,6 @@
 <?php
 
-namespace NMEA\Frames;
+namespace BultonFr\NMEA\Frames;
 
 use \DateTime;
 use \DateTimeZone;
@@ -8,12 +8,12 @@ use \DateTimeZone;
 /**
  * Define the parser system for RMC frame type
  * 
- * @package NMEA
+ * @package BultonFr\NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
  * @link http://www.gpsinformation.org/dale/nmea.htm#RMC
  * @link http://aprs.gids.nl/nmea/#rmc
  */
-class RMC extends \NMEA\Frame
+class RMC extends \BultonFr\NMEA\Frame
 {
     /**
      * {@inheritdoc}

@@ -1,21 +1,21 @@
 <?php
 
-namespace NMEA\Frames\tests\units;
+namespace BultonFr\NMEA\Frames\tests\units;
 
 require_once(__DIR__.'/../../../vendor/autoload.php');
 
 use mageekguy\atoum;
 
 /**
- * Unit test class for class \NMEA\Frame
+ * Unit test class for class \BultonFr\NMEA\Frame
  * 
- * @package NMEA
+ * @package BultonFr\NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
  */
 class VTG extends atoum\test
 {
     /**
-     * @var \NMEA\Frames\VTG $frame The VTG frame instance used by unit test
+     * @var \BultonFr\NMEA\Frames\VTG $frame The VTG frame instance used by unit test
      */
     protected $frame;
     
@@ -28,13 +28,13 @@ class VTG extends atoum\test
      */
     public function beforeTestMethod($methodName)
     {
-        $this->frame = new \NMEA\Frames\VTG(
+        $this->frame = new \BultonFr\NMEA\Frames\VTG(
             '$GPVTG,054.7,T,034.4,M,005.5,N,010.2,K*48'
         );
     }
     
     /**
-     * Test method for \NMEA\Frames\VTG::getFrameType method
+     * Test method for \BultonFr\NMEA\Frames\VTG::getFrameType method
      * 
      * @return void
      */
@@ -46,7 +46,7 @@ class VTG extends atoum\test
     }
     
     /**
-     * Test method for \NMEA\Frames\VTG::decodeFrame method and call all getters
+     * Test method for \BultonFr\NMEA\Frames\VTG::decodeFrame method and call all getters
      * 
      * @return void
      */
@@ -64,7 +64,7 @@ class VTG extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\VTG::getTrueTrack
+     * Test method for \BultonFr\NMEA\Frames\VTG::getTrueTrack
      * 
      * @return void
      */
@@ -77,7 +77,7 @@ class VTG extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\VTG::getMagneticTrack
+     * Test method for \BultonFr\NMEA\Frames\VTG::getMagneticTrack
      * 
      * @return void
      */
@@ -90,7 +90,7 @@ class VTG extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\VTG::getSpeedKnots
+     * Test method for \BultonFr\NMEA\Frames\VTG::getSpeedKnots
      * 
      * @return void
      */
@@ -103,7 +103,7 @@ class VTG extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\VTG::getSpeedKmH
+     * Test method for \BultonFr\NMEA\Frames\VTG::getSpeedKmH
      * 
      * @return void
      */
@@ -119,7 +119,7 @@ class VTG extends atoum\test
     {
         $this->assert('Frames\RMC::getMode()');
         
-        $this->frame = new \NMEA\Frames\VTG(
+        $this->frame = new \BultonFr\NMEA\Frames\VTG(
             '$GPVTG,324.24,T,,M,4.23,N,7.8,K,A*04'
         );
         

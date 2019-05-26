@@ -1,21 +1,21 @@
 <?php
 
-namespace NMEA\tests\units;
+namespace BultonFr\NMEA\tests\units;
 
 require_once(__DIR__.'/../../vendor/autoload.php');
 
 use mageekguy\atoum;
 
 /**
- * Unit test class for class \NMEA\Frame
+ * Unit test class for class \BultonFr\NMEA\Frame
  * 
- * @package NMEA
+ * @package BultonFr\NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
  */
 class Frame extends atoum\test
 {
     /**
-     * @var \NMEA\Frames\Fakes\TUN $frame The frame instance used by unit test
+     * @var \BultonFr\NMEA\Frames\Fakes\TUN $frame The frame instance used by unit test
      */
     protected $frame;
     
@@ -28,13 +28,13 @@ class Frame extends atoum\test
      */
     public function beforeTestMethod($methodName)
     {
-        $this->frame = new \NMEA\Frames\Fakes\TUN(
+        $this->frame = new \BultonFr\NMEA\Frames\Fakes\TUN(
             '$GPTUN,064036.289,4836.5375,N,00740.9373,E,1,04,3.2,200.2,M,,,,0000*0E'
         );
     }
     
     /**
-     * Test method for \NMEA\Frame::getFrameType method
+     * Test method for \BultonFr\NMEA\Frame::getFrameType method
      * 
      * @return void
      */
@@ -46,7 +46,7 @@ class Frame extends atoum\test
     }
     
     /**
-     * Test method for \NMEA\Frame::getLine method
+     * Test method for \BultonFr\NMEA\Frame::getLine method
      * 
      * @return void
      */
@@ -58,7 +58,7 @@ class Frame extends atoum\test
     }
     
     /**
-     * Test method for \NMEA\Frame::obtainMessageAndChecksum method
+     * Test method for \BultonFr\NMEA\Frame::obtainMessageAndChecksum method
      * 
      * @return void
      */
@@ -79,7 +79,7 @@ class Frame extends atoum\test
             ->exception(function() {
                 $this->invoke($this->frame)->obtainMessageAndChecksum();
             })
-                ->hasCode(\NMEA\Frame::ERR_OBTAIN_MSG_AND_CHECKSUM_FAILED)
+                ->hasCode(\BultonFr\NMEA\Frame::ERR_OBTAIN_MSG_AND_CHECKSUM_FAILED)
                 ->hasMessage(
                     'The line is corrupted. The message and/or the checksum has not been found.'
                 )
@@ -87,7 +87,7 @@ class Frame extends atoum\test
     }
     
     /**
-     * Test method for \NMEA\Frame::checksum method
+     * Test method for \BultonFr\NMEA\Frame::checksum method
      * 
      * @return void
      */
@@ -116,13 +116,13 @@ class Frame extends atoum\test
             ->exception(function() {
                 $this->invoke($this->frame)->checksum();
             })
-                ->hasCode(\NMEA\Frame::ERR_CHECKSUM_FAILED)
+                ->hasCode(\BultonFr\NMEA\Frame::ERR_CHECKSUM_FAILED)
                 ->hasMessage('The line is corrupted. The checksum not corresponding.')
         ;
     }
     
     /**
-     * Test method for \NMEA\Frame::readFrame method
+     * Test method for \BultonFr\NMEA\Frame::readFrame method
      * 
      * @return void
      */
@@ -147,7 +147,7 @@ class Frame extends atoum\test
             ->exception(function() {
                 $this->invoke($this->frame)->readFrame();
             })
-                ->hasCode(\NMEA\Frame::ERR_FRAME_MSG_FORMAT)
+                ->hasCode(\BultonFr\NMEA\Frame::ERR_FRAME_MSG_FORMAT)
                 ->hasMessage(
                     'The line is corrupted. It not corresponding to TUN format'
                 )

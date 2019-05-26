@@ -1,11 +1,11 @@
 <?php
 
-namespace NMEA\Utils;
+namespace BultonFr\NMEA\Utils;
 
 /**
  * Tools to convert NMEA coordinates
  * 
- * @package NMEA
+ * @package BultonFr\NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
  */
 class Coordinates

@@ -1,21 +1,21 @@
 <?php
 
-namespace NMEA\tests\units;
+namespace BultonFr\NMEA\tests\units;
 
 require_once(__DIR__.'/../../vendor/autoload.php');
 
 use mageekguy\atoum;
 
 /**
- * Unit test class for class \NMEA\Parser
+ * Unit test class for class \BultonFr\NMEA\Parser
  * 
- * @package NMEA
+ * @package BultonFr\NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
  */
 class Parser extends atoum\test
 {
     /**
-     * @var \NMEA\Parser $parser The parser instance used by unit test
+     * @var \BultonFr\NMEA\Parser $parser The parser instance used by unit test
      */
     protected $parser;
     
@@ -28,11 +28,11 @@ class Parser extends atoum\test
      */
     public function beforeTestMethod($methodName)
     {
-        $this->parser = new \NMEA\Parser;
+        $this->parser = new \BultonFr\NMEA\Parser;
     }
     
     /**
-     * Test method for \NMEA\Parser::detectFrameType method
+     * Test method for \BultonFr\NMEA\Parser::detectFrameType method
      * 
      * @return void
      */
@@ -42,7 +42,7 @@ class Parser extends atoum\test
             ->exception(function() {
                 $this->invoke($this->parser)->detectFrameType('unit_test');
             })
-                ->hasCode(\NMEA\Parser::ERR_FRAME_DETECT_FAILED)
+                ->hasCode(\BultonFr\NMEA\Parser::ERR_FRAME_DETECT_FAILED)
                 ->hasMessage('The detection of the frame type has failed.')
         ;
         
@@ -57,7 +57,7 @@ class Parser extends atoum\test
     }
     
     /**
-     * Test method for \NMEA\Parser::obtainFrameParser method
+     * Test method for \BultonFr\NMEA\Parser::obtainFrameParser method
      * 
      * @return void
      */
@@ -70,7 +70,7 @@ class Parser extends atoum\test
                     'TUN'
                 );
             })
-                ->hasCode(\NMEA\Parser::ERR_NO_PARSER_FOR_FRAME_TYPE)
+                ->hasCode(\BultonFr\NMEA\Parser::ERR_NO_PARSER_FOR_FRAME_TYPE)
                 ->hasMessage('There is no class defined for frame type TUN.')
         ;
         
@@ -82,7 +82,7 @@ class Parser extends atoum\test
             'Fakes\TUN'
         );
         $this->object($obj)
-            ->isInstanceOf('\NMEA\Frames\Fakes\TUN')
+            ->isInstanceOf('\BultonFr\NMEA\Frames\Fakes\TUN')
         ;
     }
 }

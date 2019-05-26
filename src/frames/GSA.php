@@ -1,16 +1,16 @@
 <?php
 
-namespace NMEA\Frames;
+namespace BultonFr\NMEA\Frames;
 
 /**
  * Define the parser system for GSA frame type
  * 
- * @package NMEA
+ * @package BultonFr\NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
  * @link http://www.gpsinformation.org/dale/nmea.htm#GSA
  * @link http://aprs.gids.nl/nmea/#gsa
  */
-class GSA extends \NMEA\Frame
+class GSA extends \BultonFr\NMEA\Frame
 {
     /**
      * {@inheritdoc}
