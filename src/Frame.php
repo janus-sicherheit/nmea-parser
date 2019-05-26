@@ -155,7 +155,7 @@ abstract class Frame
         if (!preg_match('/^\$(.*)\*([A-Z0-9]{2})/', $this->line, $matched)) {
             throw new Exception(
                 'The line is corrupted. The message and/or the checksum has not been found.',
-                self::ERR_OBTAIN_MSG_AND_CHECKSUM_FAILED
+                static::ERR_OBTAIN_MSG_AND_CHECKSUM_FAILED
             );
         }
         
@@ -187,7 +187,7 @@ abstract class Frame
         if (strtoupper($checksum) !== strtoupper($this->checksum)) {
             throw new Exception(
                 'The line is corrupted. The checksum not corresponding.',
-                self::ERR_CHECKSUM_FAILED
+                static::ERR_CHECKSUM_FAILED
             );
         }
     }
@@ -206,7 +206,7 @@ abstract class Frame
         if (!preg_match($this->frameRegex, $this->message, $matches)) {
             throw new Exception(
                 'The line is corrupted. It not corresponding to '.$this->frameType.' format',
-                self::ERR_FRAME_MSG_FORMAT
+                static::ERR_FRAME_MSG_FORMAT
             );
         }
         

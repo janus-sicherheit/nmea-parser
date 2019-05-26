@@ -52,7 +52,7 @@ class Coordinates
      */
     public static function convertGPSDataToDec($data, $isLongitude = false)
     {
-        $obj = self::convertGPSDataToDegree($data, null, $isLongitude);
+        $obj = static::convertGPSDataToDegree($data, null, $isLongitude);
         
         /**
          * DD = d + (min/60) + (sec/3600)
