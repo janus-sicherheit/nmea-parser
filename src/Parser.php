@@ -1,6 +1,6 @@
 <?php
 
-namespace NMEA;
+namespace BultonFr\NMEA;
 
 use \Exception;
 
@@ -8,7 +8,7 @@ use \Exception;
  * Parse a nmea line to determine the frame type of the line and create an
  * instance of the frame type parser.
  * 
- * @package NMEA
+ * @package BultonFr\NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
  */
 class Parser
@@ -32,7 +32,7 @@ class Parser
      * 
      * @param string $line The line to parse
      * 
-     * @return \NMEA\Frame The frame type parser instance
+     * @return \BultonFr\NMEA\Frame The frame type parser instance
      */
     public function readLine($line)
     {
@@ -71,13 +71,13 @@ class Parser
      * @param string $line The line to read
      * @param string $frameType The frame type
      * 
-     * @return \NMEA\Frame
+     * @return \BultonFr\NMEA\Frame
      * 
      * @throws Exception If no parse exist for this frame type
      */
     protected function obtainFrameParser($line, $frameType)
     {
-        $frameClassName = '\NMEA\Frames\\'.$frameType;
+        $frameClassName = '\BultonFr\NMEA\Frames\\'.$frameType;
         
         if (!class_exists($frameClassName)) {
             throw new Exception(

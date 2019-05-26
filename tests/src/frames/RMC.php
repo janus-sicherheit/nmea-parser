@@ -1,21 +1,21 @@
 <?php
 
-namespace NMEA\Frames\tests\units;
+namespace BultonFr\NMEA\Frames\tests\units;
 
 require_once(__DIR__.'/../../../vendor/autoload.php');
 
 use mageekguy\atoum;
 
 /**
- * Unit test class for class \NMEA\Frame
+ * Unit test class for class \BultonFr\NMEA\Frame
  * 
- * @package NMEA
+ * @package BultonFr\NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
  */
 class RMC extends atoum\test
 {
     /**
-     * @var \NMEA\Frames\RMC $frame The RMC frame instance used by unit test
+     * @var \BultonFr\NMEA\Frames\RMC $frame The RMC frame instance used by unit test
      */
     protected $frame;
     
@@ -28,13 +28,13 @@ class RMC extends atoum\test
      */
     public function beforeTestMethod($methodName)
     {
-        $this->frame = new \NMEA\Frames\RMC(
+        $this->frame = new \BultonFr\NMEA\Frames\RMC(
             '$GPRMC,123519,A,4807.038,N,01131.000,E,022.4,084.4,230394,003.1,W*6A'
         );
     }
     
     /**
-     * Test method for \NMEA\Frames\RMC::getFrameType method
+     * Test method for \BultonFr\NMEA\Frames\RMC::getFrameType method
      * 
      * @return void
      */
@@ -46,7 +46,7 @@ class RMC extends atoum\test
     }
     
     /**
-     * Test method for \NMEA\Frames\RMC::decodeFrame method and call all getters
+     * Test method for \BultonFr\NMEA\Frames\RMC::decodeFrame method and call all getters
      * 
      * @return void
      */
@@ -71,7 +71,7 @@ class RMC extends atoum\test
     }
     
     /**
-     * Test method for \NMEA\Frames\RMC::getUtcTime
+     * Test method for \BultonFr\NMEA\Frames\RMC::getUtcTime
      * 
      * @return void
      */
@@ -94,7 +94,7 @@ class RMC extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\RMC::getStatus
+     * Test method for \BultonFr\NMEA\Frames\RMC::getStatus
      * 
      * @return void
      */
@@ -107,7 +107,7 @@ class RMC extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\RMC::getLatitude
+     * Test method for \BultonFr\NMEA\Frames\RMC::getLatitude
      * 
      * @return void
      */
@@ -120,7 +120,7 @@ class RMC extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\RMC::getLatitudeDirection
+     * Test method for \BultonFr\NMEA\Frames\RMC::getLatitudeDirection
      * 
      * @return void
      */
@@ -133,7 +133,7 @@ class RMC extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\RMC::getLongitude
+     * Test method for \BultonFr\NMEA\Frames\RMC::getLongitude
      * 
      * @return void
      */
@@ -146,7 +146,7 @@ class RMC extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\RMC::getLongitudeDirection
+     * Test method for \BultonFr\NMEA\Frames\RMC::getLongitudeDirection
      * 
      * @return void
      */
@@ -159,7 +159,7 @@ class RMC extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\RMC::getSpeed
+     * Test method for \BultonFr\NMEA\Frames\RMC::getSpeed
      * 
      * @return void
      */
@@ -172,7 +172,7 @@ class RMC extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\RMC::getAngle
+     * Test method for \BultonFr\NMEA\Frames\RMC::getAngle
      * 
      * @return void
      */
@@ -185,7 +185,7 @@ class RMC extends atoum\test
     }
     
     /**
-     * Test method for \NMEA\Frames\RMC::getUtcDate
+     * Test method for \BultonFr\NMEA\Frames\RMC::getUtcDate
      * 
      * @return void
      */
@@ -208,7 +208,7 @@ class RMC extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\RMC::getMagneticVariation
+     * Test method for \BultonFr\NMEA\Frames\RMC::getMagneticVariation
      * 
      * @return void
      */
@@ -221,7 +221,7 @@ class RMC extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\RMC::getMagneticVariationDirection
+     * Test method for \BultonFr\NMEA\Frames\RMC::getMagneticVariationDirection
      * 
      * @return void
      */
@@ -237,7 +237,7 @@ class RMC extends atoum\test
     {
         $this->assert('Frames\RMC::getMode()');
         
-        $this->frame = new \NMEA\Frames\RMC(
+        $this->frame = new \BultonFr\NMEA\Frames\RMC(
             '$GPRMC,120250.000,A,4331.1611,N,00407.6114,E,4.17,324.43,170917,,,A*60'
         );
         

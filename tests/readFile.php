@@ -32,7 +32,7 @@ if (!file_exists($file)) {
 
 require_once(__DIR__.'/../vendor/autoload.php');
 
-$parser = new \NMEA\Parser;
+$parser = new \BultonFr\NMEA\Parser;
 $fop    = fopen($file, 'r');
 
 while ($line = fgets($fop)) {
@@ -50,30 +50,30 @@ while ($line = fgets($fop)) {
     
     $frameType = $frame->getFrameType();
     if ($frameType === 'GGA' || $frameType === 'GLL' || $frameType === 'RMC') {
-        $latDeg     = \NMEA\Utils\Coordinates::convertGPDataToDegree(
+        $latDeg     = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree(
             $frame->getLatitude(),
             $frame->getLatitudeDirection(),
             false,
             true
         );
-        $latDec     = \NMEA\Utils\Coordinates::convertGPDataToDec(
+        $latDec     = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDec(
             $frame->getLatitude()
         );
-        $latGmapObj = \NMEA\Utils\Coordinates::convertGPDataToDegree(
+        $latGmapObj = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree(
             $frame->getLatitude()
         );
         
-        $longDeg     = \NMEA\Utils\Coordinates::convertGPDataToDegree(
+        $longDeg     = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree(
             $frame->getLongitude(),
             $frame->getLongitudeDirection(),
             true,
             true
         );
-        $longDec     = \NMEA\Utils\Coordinates::convertGPDataToDec(
+        $longDec     = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDec(
             $frame->getLongitude(),
             true
         );
-        $longGmapObj = \NMEA\Utils\Coordinates::convertGPDataToDegree(
+        $longGmapObj = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree(
             $frame->getLongitude(),
             null,
             true

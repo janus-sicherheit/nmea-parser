@@ -1,13 +1,13 @@
 <?php
 
-namespace NMEA;
+namespace BultonFr\NMEA;
 
 use \Exception;
 
 /**
  * Use frame type parser infos to check a line and parse it.
  * 
- * @package NMEA
+ * @package BultonFr\NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
  */
 abstract class Frame

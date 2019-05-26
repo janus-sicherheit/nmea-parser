@@ -1,21 +1,21 @@
 <?php
 
-namespace NMEA\Frames\tests\units;
+namespace BultonFr\NMEA\Frames\tests\units;
 
 require_once(__DIR__.'/../../../vendor/autoload.php');
 
 use mageekguy\atoum;
 
 /**
- * Unit test class for class \NMEA\Frame
+ * Unit test class for class \BultonFr\NMEA\Frame
  * 
- * @package NMEA
+ * @package BultonFr\NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
  */
 class GSV extends atoum\test
 {
     /**
-     * @var \NMEA\Frames\GSV $frame The GSV frame instance used by unit test
+     * @var \BultonFr\NMEA\Frames\GSV $frame The GSV frame instance used by unit test
      */
     protected $frame;
     
@@ -28,13 +28,13 @@ class GSV extends atoum\test
      */
     public function beforeTestMethod($methodName)
     {
-        $this->frame = new \NMEA\Frames\GSV(
+        $this->frame = new \BultonFr\NMEA\Frames\GSV(
             '$GPGSV,2,1,08,01,40,083,46,02,17,308,41,12,07,344,39,14,22,228,45*75'
         );
     }
     
     /**
-     * Test method for \NMEA\Frames\GSV::getFrameType method
+     * Test method for \BultonFr\NMEA\Frames\GSV::getFrameType method
      * 
      * @return void
      */
@@ -46,7 +46,7 @@ class GSV extends atoum\test
     }
     
     /**
-     * Test method for \NMEA\Frames\GSV::decodeFrame method and call all getters
+     * Test method for \BultonFr\NMEA\Frames\GSV::decodeFrame method and call all getters
      * 
      * @return void
      */
@@ -64,7 +64,7 @@ class GSV extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\GSV::getSentenceTotalNumber
+     * Test method for \BultonFr\NMEA\Frames\GSV::getSentenceTotalNumber
      * 
      * @return void
      */
@@ -77,7 +77,7 @@ class GSV extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\GSV::getSentenceCurrentNumber
+     * Test method for \BultonFr\NMEA\Frames\GSV::getSentenceCurrentNumber
      * 
      * @return void
      */
@@ -90,7 +90,7 @@ class GSV extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\GSV::getSatellitesNumber
+     * Test method for \BultonFr\NMEA\Frames\GSV::getSatellitesNumber
      * 
      * @return void
      */
@@ -103,7 +103,7 @@ class GSV extends atoum\test
     }
 
     /**
-     * Test method for \NMEA\Frames\GSV::getSatellitesInfos
+     * Test method for \BultonFr\NMEA\Frames\GSV::getSatellitesInfos
      * 
      * @return void
      */
@@ -123,7 +123,7 @@ class GSV extends atoum\test
     
     /**
      * Test method for an object of the array
-     * returned by \NMEA\Frames\GSV::getSatellitesInfos
+     * returned by \BultonFr\NMEA\Frames\GSV::getSatellitesInfos
      * 
      * @return void
      */
@@ -161,7 +161,7 @@ class GSV extends atoum\test
     {
         $this->assert('Frames\GSV::getSatellitesInfos() without four satellites');
         
-        $this->frame = new \NMEA\Frames\GSV(
+        $this->frame = new \BultonFr\NMEA\Frames\GSV(
             '$GPGSV,2,1,08,01,40,083,46,02,17,308,41,12,07,344,*43'
         );
         

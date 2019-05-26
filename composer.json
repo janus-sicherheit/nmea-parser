@@ -1,5 +1,5 @@
 {
-    "name": "gps2maps/nmea",
+    "name": "bulton-fr/nmea-parser",
     "description": "NMEA PHP parser",
     "version": "1.0.0",
     "type": "library",
@@ -25,14 +25,14 @@
     },
     "autoload": {
         "psr-4": {
-            "NMEA\\": "src/",
-            "NMEA\\Frames\\": "src/frames/",
-            "NMEA\\Utils\\": "src/utils/"
+            "BultonFr\\NMEA\\": "src/",
+            "BultonFr\\NMEA\\Frames\\": "src/frames/",
+            "BultonFr\\NMEA\\Utils\\": "src/utils/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NMEA\\Frames\\Fakes\\": "tests/fakeFrames/"
+            "BultonFr\\NMEA\\Frames\\Fakes\\": "tests/fakeFrames/"
         }
     }
 }

@@ -1,28 +1,28 @@
 <?php
 
-namespace NMEA\Utils\tests\units;
+namespace BultonFr\NMEA\Utils\tests\units;
 
 require_once(__DIR__.'/../../../vendor/autoload.php');
 
 use mageekguy\atoum;
 
 /**
- * Unit test class for class \NMEA\Utils\Coordinates
+ * Unit test class for class \BultonFr\NMEA\Utils\Coordinates
  * 
- * @package NMEA
+ * @package BultonFr\NMEA
  * @author Vermeulen Maxime <bulton.fr@gmail.com>
  */
 class Coordinates extends atoum\test
 {
     /**
-     * Test method for \NMEA\Utils\Coordinates::convertGPDataToDegree method
+     * Test method for \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree method
      * 
      * @return void
      */
     public function testConvertGPDataToDegree()
     {
         $this->assert('Coordinates::convertGPDataToDegree for latitude with object format')
-            ->object($obj = \NMEA\Utils\Coordinates::convertGPDataToDegree('4916.45'))
+            ->object($obj = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree('4916.45'))
                 ->isInstanceOf('\stdClass')
             ->boolean(property_exists($obj, 'degree'))
                 ->isTrue()
@@ -39,12 +39,12 @@ class Coordinates extends atoum\test
         ;
         
         $this->assert('Coordinates::convertGPDataToDegree for latitude with string format')
-            ->string(\NMEA\Utils\Coordinates::convertGPDataToDegree('4916.45', 'N', false, true))
+            ->string(\BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree('4916.45', 'N', false, true))
                 ->isEqualTo('49° 16\' 45" N')
         ;
         
         $this->assert('Coordinates::convertGPDataToDegree for longitude with object format')
-            ->object($obj = \NMEA\Utils\Coordinates::convertGPDataToDegree('12311.12', 'W', true))
+            ->object($obj = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree('12311.12', 'W', true))
                 ->isInstanceOf('\stdClass')
             ->boolean(property_exists($obj, 'degree'))
                 ->isTrue()
@@ -61,26 +61,26 @@ class Coordinates extends atoum\test
         ;
         
         $this->assert('Coordinates::convertGPDataToDegree for longitude with string format')
-            ->string(\NMEA\Utils\Coordinates::convertGPDataToDegree('12311.12', 'W', true, true))
+            ->string(\BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree('12311.12', 'W', true, true))
                 ->isEqualTo('123° 11\' 12" W')
         ;
     }
     
     /**
-     * Test method for \NMEA\Utils\Coordinates::convertGPDataToDec method
+     * Test method for \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDec method
      * 
      * @return void
      */
     public function testConvertGPDataToDec()
     {
         $this->assert('Coordinates::convertGPDataToDec for latitude')
-            ->given($lat = \NMEA\Utils\Coordinates::convertGPDataToDec('4916.45'))
+            ->given($lat = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDec('4916.45'))
             ->float(round($lat, 8))
                 ->isEqualTo(49.27916667)
         ;
         
         $this->assert('Coordinates::convertGPDataToDec for longitude')
-            ->given($long = \NMEA\Utils\Coordinates::convertGPDataToDec('12311.12', true))
+            ->given($long = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDec('12311.12', true))
             ->float(round($long, 8))
                 ->isEqualTo(123.18666667)
         ;
