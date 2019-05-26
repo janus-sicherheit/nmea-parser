@@ -17,7 +17,7 @@
         "email": "support@bulton.fr"
     },
     "require": {
-        "php": ">=7.0.0"
+        "php": ">=7.1.0"
     },
     "require-dev": {
         "atoum/atoum": "~3.2",
