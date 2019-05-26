@@ -2,8 +2,6 @@
 
 namespace BultonFr\NMEA\tests\units;
 
-require_once(__DIR__.'/../../vendor/autoload.php');
-
 use mageekguy\atoum;
 
 /**
