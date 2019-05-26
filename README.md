@@ -1,5 +1,9 @@
 # NMEA parser
 
+[![Build Status](https://travis-ci.org/bulton-fr/nmea-parser.svg?branch=master)](https://travis-ci.org/bulton-fr/nmea-parser) [![Code Coverage](https://scrutinizer-ci.com/g/bulton-fr/nmea-parser/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/bulton-fr/nmea-parser/?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bulton-fr/nmea-parser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bulton-fr/nmea-parser/?branch=master)
+
+[![Latest Stable Version](https://poser.pugx.org/bulton-fr/nmea-parser/v/stable.svg)](https://packagist.org/packages/bulton-fr/nmea-parser) [![Latest Unstable Version](https://poser.pugx.org/bulton-fr/nmea-parser/v/unstable.svg)](https://packagist.org/packages/bulton-fr/nmea-parser) [![License](https://poser.pugx.org/bulton-fr/nmea-parser/license.svg)](https://packagist.org/packages/bulton-fr/nmea-parser)
+
 Read a NMEA line, detect the frame type and parse the line to obtain all datas.
 
 Supported frame type :

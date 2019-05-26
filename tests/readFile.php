@@ -50,30 +50,30 @@ while ($line = fgets($fop)) {
     
     $frameType = $frame->getFrameType();
     if ($frameType === 'GGA' || $frameType === 'GLL' || $frameType === 'RMC') {
-        $latDeg     = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree(
+        $latDeg     = \BultonFr\NMEA\Utils\Coordinates::convertGPSDataToDegree(
             $frame->getLatitude(),
             $frame->getLatitudeDirection(),
             false,
             true
         );
-        $latDec     = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDec(
+        $latDec     = \BultonFr\NMEA\Utils\Coordinates::convertGPSDataToDec(
             $frame->getLatitude()
         );
-        $latGmapObj = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree(
+        $latGmapObj = \BultonFr\NMEA\Utils\Coordinates::convertGPSDataToDegree(
             $frame->getLatitude()
         );
         
-        $longDeg     = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree(
+        $longDeg     = \BultonFr\NMEA\Utils\Coordinates::convertGPSDataToDegree(
             $frame->getLongitude(),
             $frame->getLongitudeDirection(),
             true,
             true
         );
-        $longDec     = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDec(
+        $longDec     = \BultonFr\NMEA\Utils\Coordinates::convertGPSDataToDec(
             $frame->getLongitude(),
             true
         );
-        $longGmapObj = \BultonFr\NMEA\Utils\Coordinates::convertGPDataToDegree(
+        $longGmapObj = \BultonFr\NMEA\Utils\Coordinates::convertGPSDataToDegree(
             $frame->getLongitude(),
             null,
             true

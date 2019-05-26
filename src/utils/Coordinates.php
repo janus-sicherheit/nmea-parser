@@ -20,7 +20,7 @@ class Coordinates
      * 
      * @return \stdClass|string Change with $toString parameter value
      */
-    public static function convertGPDataToDegree(
+    public static function convertGPSDataToDegree(
         $data,
         $direction = null,
         $isLongitude = false,
@@ -50,9 +50,9 @@ class Coordinates
      * 
      * @return float
      */
-    public static function convertGPDataToDec($data, $isLongitude = false)
+    public static function convertGPSDataToDec($data, $isLongitude = false)
     {
-        $obj = self::convertGPDataToDegree($data, null, $isLongitude);
+        $obj = static::convertGPSDataToDegree($data, null, $isLongitude);
         
         /**
          * DD = d + (min/60) + (sec/3600)

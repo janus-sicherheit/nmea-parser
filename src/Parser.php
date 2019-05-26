@@ -58,7 +58,7 @@ class Parser
         if (!preg_match('/^\$([A-Z]{2})([A-Z]{3}),/', $line, $matches)) {
             throw new Exception(
                 'The detection of the frame type has failed.',
-                self::ERR_FRAME_DETECT_FAILED
+                static::ERR_FRAME_DETECT_FAILED
             );
         }
         
@@ -82,7 +82,7 @@ class Parser
         if (!class_exists($frameClassName)) {
             throw new Exception(
                 'There is no class defined for frame type '.$frameType.'.',
-                self::ERR_NO_PARSER_FOR_FRAME_TYPE
+                static::ERR_NO_PARSER_FOR_FRAME_TYPE
             );
         }
         
